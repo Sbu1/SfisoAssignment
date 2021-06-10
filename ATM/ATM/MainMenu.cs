@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ATM
 {
@@ -48,6 +49,34 @@ namespace ATM
 			Login login = new Login();
 			login.Show();
 			this.Hide();
+		}
+
+		private void btnPrint_Click(object sender, EventArgs e)
+		{
+			SqlCommand cmd = connection.CreateCommand();
+			cmd.CommandType = CommandType.Text;
+			cmd.CommandText = "SELECT username, B.Name, balance FROM UserBalance UB INNER JOIN Bank B on B.Name = ub.Name WHERE Username = @username";
+			cmd.Parameters.AddWithValue("@username", Username);
+			SqlDataAdapter da = new SqlDataAdapter(cmd);
+			DataTable dt = new DataTable();
+			da.Fill(dt);
+
+
+			if (dt.Rows.Count == 1)
+			{
+				var username = dt.Rows[0].ItemArray[0].ToString();
+				var bankname = dt.Rows[0].ItemArray[1].ToString();
+				var balance = Convert.ToDouble(dt.Rows[0].ItemArray[2]);
+
+				AccountDetails accountDetails = new AccountDetails();
+				accountDetails.Username = username;
+				accountDetails.BankName = bankname;
+				accountDetails.Balance = balance;
+				accountDetails.ManualInitialize();
+				accountDetails.Show();
+				this.Hide();
+
+			}
 		}
 	}
 }

@@ -58,6 +58,7 @@ namespace ATM
 			this.txtpassword.Name = "txtpassword";
 			this.txtpassword.Size = new System.Drawing.Size(344, 44);
 			this.txtpassword.TabIndex = 2;
+			this.txtpassword.UseSystemPasswordChar = true;
 			// 
 			// username
 			// 

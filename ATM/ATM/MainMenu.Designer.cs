@@ -38,7 +38,7 @@ namespace ATM
 			// 
 			// btnWithdrawal
 			// 
-			this.btnWithdrawal.Location = new System.Drawing.Point(866, 414);
+			this.btnWithdrawal.Location = new System.Drawing.Point(878, 279);
 			this.btnWithdrawal.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
 			this.btnWithdrawal.Name = "btnWithdrawal";
 			this.btnWithdrawal.Size = new System.Drawing.Size(716, 131);
@@ -49,17 +49,18 @@ namespace ATM
 			// 
 			// btnPrint
 			// 
-			this.btnPrint.Location = new System.Drawing.Point(880, 688);
+			this.btnPrint.Location = new System.Drawing.Point(892, 553);
 			this.btnPrint.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
 			this.btnPrint.Name = "btnPrint";
 			this.btnPrint.Size = new System.Drawing.Size(716, 125);
 			this.btnPrint.TabIndex = 1;
-			this.btnPrint.Text = "Print Acount Details";
+			this.btnPrint.Text = "View Acount Details";
 			this.btnPrint.UseVisualStyleBackColor = true;
+			this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
 			// 
 			// btnLogOut
 			// 
-			this.btnLogOut.Location = new System.Drawing.Point(880, 974);
+			this.btnLogOut.Location = new System.Drawing.Point(892, 839);
 			this.btnLogOut.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
 			this.btnLogOut.Name = "btnLogOut";
 			this.btnLogOut.Size = new System.Drawing.Size(716, 114);
@@ -75,7 +76,7 @@ namespace ATM
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(1123, 153);
+			this.label1.Location = new System.Drawing.Point(1137, 72);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(174, 37);
 			this.label1.TabIndex = 3;
@@ -85,7 +86,7 @@ namespace ATM
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(2411, 1523);
+			this.ClientSize = new System.Drawing.Size(2465, 1437);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.btnLogOut);
 			this.Controls.Add(this.btnPrint);

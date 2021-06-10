@@ -23,20 +23,27 @@ namespace ATM
 
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
-			string username = txtUsername.Text;
+			string username = txtUsername.Text.ToLower();
 			string password = txtpassword.Text;
+
+
+			if (username.Count() < 3 || password.Count() < 4)
+			{
+				MessageBox.Show("Username should be greater 2 and password greater than 4");
+				return;
+			}
 
 			SqlCommand cmd = connection.CreateCommand();
 			cmd.CommandType = CommandType.Text;
 			cmd.CommandText = "Select 1 FROM UserInfo WHERE Username = @username AND Password = @password";
 			cmd.Parameters.AddWithValue("@username", username);
 			cmd.Parameters.AddWithValue("@password", password);
-			SqlDataAdapter da = new SqlDataAdapter(cmd);
-			DataTable dt = new DataTable();
-			da.Fill(dt);
-
+			
 			try
 			{
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable();
+				da.Fill(dt);
 				if (dt.Rows.Count == 1)
 				{
 					MessageBox.Show("You have successful logged in");
@@ -53,7 +60,7 @@ namespace ATM
 
 			catch
 			{
-				MessageBox.Show("Invalid username or password");
+				MessageBox.Show("Something went wrong while try to login you in. Please try again");
 			}
 		}
 	}
